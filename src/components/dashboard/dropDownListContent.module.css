@@ -1,0 +1,7 @@
+.dropDownsContainer{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 40px;
+
+}
+

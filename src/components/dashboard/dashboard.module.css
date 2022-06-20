@@ -1,0 +1,16 @@
+.appContainer {
+  background: aliceblue;
+}
+
+.chartDataContainer {
+  background: white;
+  border-radius: 5px;
+  width: 95%;
+  margin: auto;
+}
+
+.yLabel {
+  font-size: 10px;
+  color: darkgray;
+  margin-left: 30px;
+}

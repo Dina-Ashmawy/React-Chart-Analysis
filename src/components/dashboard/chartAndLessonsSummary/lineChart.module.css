@@ -1,0 +1,21 @@
+.LineChartContainer {
+  margin: 12px 30px 0;
+  width: 50%;
+}
+
+.buttonContainer {
+  margin: 50px auto;
+  width: 30%;
+}
+
+.noChartDataContainer {
+  width: 60%;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.yHeader {
+  color: #bab6b6;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
