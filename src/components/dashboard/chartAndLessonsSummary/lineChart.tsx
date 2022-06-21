@@ -6,15 +6,15 @@ import { useNavigate } from "react-router-dom";
 import * as constants from "../../../defines";
 import { RootState } from "../../../state/reducers/index";
 import { connect } from "react-redux";
-
 import { ISelectedSchools } from "../../../models/models";
-ChartJS.register(...registerables);
 
 interface IProps {
   selectedSchools: ISelectedSchools[];
 }
 
 export function LineChart({ selectedSchools }: IProps) {
+  ChartJS.register(...registerables);
+
   const navigate = useNavigate();
   const chartRef = useRef();
 
@@ -73,7 +73,7 @@ export function LineChart({ selectedSchools }: IProps) {
   }
 }
 
-const mapStateToProps = (state: RootState): IProps => {
+export const mapStateToProps = (state: RootState): IProps => {
   return {
     selectedSchools: state.ChartAnalysis.selectedSchoolsChartData
   };

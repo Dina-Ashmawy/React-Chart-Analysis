@@ -30,7 +30,7 @@ const ChartAndLessonsSummary = ({filterstate}: IProps) => {
 
 
 
-const mapStateToProps = (state: RootState): IProps => {
+export const mapStateToProps = (state: RootState): IProps => {
   return {
     filterstate: state.ChartAnalysis.filterState,
   };

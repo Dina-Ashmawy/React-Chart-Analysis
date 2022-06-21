@@ -9,8 +9,8 @@ interface IProps {
 
 export function PointData({ filterstate }: IProps) {
   const location = useLocation().state;
-  const country: any = filterstate.country;
-  const camp: any = filterstate.camp;
+  const country: string = filterstate.country?.value?? '';
+  const camp: string = filterstate.camp?.value?? '';
 
   const PointData: ILocationStateType = location as ILocationStateType;
 
@@ -18,25 +18,25 @@ export function PointData({ filterstate }: IProps) {
     <div className={classes.dataContainer}>
       <h2>Point details</h2>
       <div className={classes.itemContainer}>
-        <label>Country: {country.value}</label>
+        <label>Country: {country}</label>
       </div>
       <div className={classes.itemContainer}>
-        <label>Camp: {camp.value}</label>
+        <label>Camp: {camp}</label>
       </div>
       <div className={classes.itemContainer}>
-        <label>School: {PointData.SchoolName}</label>
+        <label>School: {PointData?.SchoolName}</label>
       </div>
       <div className={classes.itemContainer}>
-        <label>Month: {PointData.Month}</label>
+        <label>Month: {PointData?.Month}</label>
       </div>
       <div className={classes.itemContainer}>
-        <label>No of Lessons:{PointData.Lessons}</label>
+        <label>No of Lessons:{PointData?.Lessons}</label>
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state: RootState): IProps => {
+export const mapStateToProps = (state: RootState): IProps => {
   return {
     filterstate: state.ChartAnalysis.filterState
   };

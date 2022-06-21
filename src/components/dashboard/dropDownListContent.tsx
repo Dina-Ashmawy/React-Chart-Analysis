@@ -3,11 +3,11 @@ import DropDown from "../ui/dropDown";
 import classes from './dropDownListContent.module.css';
 import {useSelector, connect} from 'react-redux';
 import { RootState } from "../../state/reducers/index";
-import { getAllAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchools } from '../../state/actions/actionCreator'
+import { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchools } from '../../state/actions/actionCreator'
 import { IFilterState, IAllAnalysis, IOptionModel } from '../../models/models'
 
 interface IProps {
-  getAllAnalysis?: () => void
+  getAllDataAnalysis?: () => void
   handleSelectedCountry?: (country: IOptionModel) => void
   handleSelectedCamp?: (camp: IOptionModel) => void
   handleSelectedSchools?: (school: IOptionModel) => void
@@ -19,7 +19,7 @@ interface IProps {
 }
 
 export function DropDownListContent ({ 
-  getAllAnalysis,
+  getAllDataAnalysis,
   handleSelectedCountry,
   handleSelectedCamp,
   handleSelectedSchools,
@@ -27,10 +27,10 @@ export function DropDownListContent ({
 }: IProps ) {
   const state = useSelector((state: RootState) => state.ChartAnalysis);
   useEffect(() => {
-    if (getAllAnalysis && allAnalysis?.length === 0) {
-      getAllAnalysis()
+    if (getAllDataAnalysis && allAnalysis?.length === 0) {
+      getAllDataAnalysis()
     }
-  }, [getAllAnalysis, allAnalysis?.length])
+  }, [getAllDataAnalysis, allAnalysis?.length])
 
   return (
     <div className={classes.dropDownsContainer}>
@@ -63,7 +63,7 @@ export function DropDownListContent ({
 
 
 
-const mapStateToProps = (state: RootState): IProps => {
+export const mapStateToProps = (state: RootState): IProps => {
   return {
     allAnalysis: state.ChartAnalysis.allAnalysis,
     allCountries: state.ChartAnalysis.allCountries,
@@ -72,6 +72,6 @@ const mapStateToProps = (state: RootState): IProps => {
     filterState: state.ChartAnalysis.filterState,
   }
 }
-const mapDispatchToProps = { getAllAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchools }
+export const mapDispatchToProps = { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchools }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropDownListContent)

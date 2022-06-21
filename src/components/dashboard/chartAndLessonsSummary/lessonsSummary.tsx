@@ -19,9 +19,6 @@ export function LessonsSummary({ lessonsByCampData, filterstate }: IProps) {
   return (
     <div className={classes.verticalLine}>
       <div className={classes.titleContainer}>
-      <div id="content">
-        <div id="outer-circle"></div>
-      </div>
         <label className={classes.lessonsText}> {allLessonsCount() } Lessons  </label>
          <label className={classes.campText}>in { Camp.value}</label>
       </div>
@@ -42,7 +39,7 @@ export function LessonsSummary({ lessonsByCampData, filterstate }: IProps) {
   );
 }
 
-const mapStateToProps = (state: RootState): IProps => {
+export const mapStateToProps = (state: RootState): IProps => {
   return {
     filterstate: state.ChartAnalysis.filterState,
     lessonsByCampData: state.ChartAnalysis.lessonsByCampData,

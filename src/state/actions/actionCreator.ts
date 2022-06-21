@@ -18,7 +18,7 @@ var uniqueSchools: IOptionModel[] = [];
 var datasets: ISelectedSchools[] = [];
 var groupsBySchoolsArray: IGroupedItems[] = [];
 
-export const getAllAnalysis = () => {
+export const getAllDataAnalysis = () => {
   return (dispatch: Action) => {
     axios
       .get(
@@ -193,7 +193,6 @@ const handleDataMonths = (itemInGroup: IAnalysis[], schoolName: string) => {
 }
 
 export const handleSelectedCountry = (selectedCountry: IOptionModel) => {
-  selectedSchoolChartData();
   return (dispatch: Action) => {
     const state = store.getState();
     dispatch({
@@ -215,7 +214,6 @@ export const handleSelectedCountry = (selectedCountry: IOptionModel) => {
 }
 
 export const handleSelectedCamp = (selectedCamp: IOptionModel) => {
-  selectedSchoolChartData();
   return (dispatch: Action) => {
     const state = store.getState();
     dispatch({
@@ -234,7 +232,6 @@ export const handleSelectedCamp = (selectedCamp: IOptionModel) => {
 }
 
 export const handleSelectedSchools = (selectedSchools: IOptionModel[]) => {
-  selectedSchoolChartData();
   let isSelectAll = selectedSchools.find(
     (item: any) => item.value.indexOf(constants.selectAll.value) !== -1
   )
