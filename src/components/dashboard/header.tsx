@@ -1,7 +1,6 @@
-import classes from './header.module.css'
+import classes from "./header.module.css";
 
-
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <div className={classes.headerContainer}>
       <h1 className={classes.title}>Analysis Chart</h1>

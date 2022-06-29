@@ -1,77 +1,77 @@
 import { useEffect } from "react";
-import DropDown from "../ui/dropDown";
-import classes from './dropDownListContent.module.css';
-import {useSelector, connect} from 'react-redux';
-import { RootState } from "../../state/reducers/index";
-import { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchools } from '../../state/actions/actionCreator'
-import { IFilterState, IAllAnalysis, IOptionModel } from '../../models/models'
+import { DropDown } from "@/components/ui/dropDown";
+import classes from "./dropDownListContent.module.css";
+import { connect } from "react-redux";
+import { RootState } from "@/state/reducers/index";
+import { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchool } from "@/state/actions/actionCreator";
+import { IFilterState, IAnalysis, IOptionModel } from "@/models/models";
+import { initialOptianModel } from "@/defines";
 
 interface IProps {
-  getAllDataAnalysis?: () => void
-  handleSelectedCountry?: (country: IOptionModel) => void
-  handleSelectedCamp?: (camp: IOptionModel) => void
-  handleSelectedSchools?: (school: IOptionModel) => void
-  allAnalysis?: IAllAnalysis[]
-  allCountries?: IOptionModel[]
-  allCamps?: IOptionModel[]
-  allSchools?: IOptionModel[]
-  filterState?: IFilterState
+  getAllDataAnalysis?: () => void;
+  handleSelectedCountry?: (country: IOptionModel) => void;
+  handleSelectedCamp?: (camp: IOptionModel) => void;
+  handleSelectedSchool?: (school: IOptionModel) => void;
+  allAnalysis?: IAnalysis[];
+  allCountries: IOptionModel[];
+  allCamps: IOptionModel[];
+  allSelectedSchoolsBasedOnCountryAndCamp: IOptionModel[];
+  filterState?: IFilterState;
 }
 
-export function DropDownListContent ({ 
+export function DropDownListContent({
   getAllDataAnalysis,
   handleSelectedCountry,
   handleSelectedCamp,
-  handleSelectedSchools,
-  allAnalysis
-}: IProps ) {
-  const state = useSelector((state: RootState) => state.ChartAnalysis);
-  useEffect(() => {
-    if (getAllDataAnalysis && allAnalysis?.length === 0) {
-      getAllDataAnalysis()
-    }
-  }, [getAllDataAnalysis, allAnalysis?.length])
+  handleSelectedSchool,
+  allAnalysis,
+  allCountries,
+  allCamps,
+  allSelectedSchoolsBasedOnCountryAndCamp,
+  filterState
+}: IProps): JSX.Element {
+  useEffect(
+    () => {
+      if (getAllDataAnalysis && (allAnalysis?.length === 0)) {
+        getAllDataAnalysis();
+      }
+    },
+    [getAllDataAnalysis, allAnalysis?.length]
+  );
 
   return (
     <div className={classes.dropDownsContainer}>
       <DropDown
-        items={state.allCountries}
+        items={allCountries}
         title={"Select Country"}
-        isMulti={false}
         handleSelectedOption={handleSelectedCountry}
-        setDDLValue = {state.filterState.country? state.filterState.country : '' }
-      ></DropDown>
+        setDDLValue={filterState?.country ?? initialOptianModel}
+      />
       <DropDown
-        items={state.allCamps}
+        items={allCamps}
         title={"Select Camp"}
-        isMulti={false}
         handleSelectedOption={handleSelectedCamp}
-        setDDLValue = {state.filterState.camp? state.filterState.camp : '' }
-
-      ></DropDown>
+        setDDLValue={filterState?.camp ?? initialOptianModel}
+      />
       <DropDown
-        items={state.allSchools}
+        items={allSelectedSchoolsBasedOnCountryAndCamp}
         title={"Select School"}
-        isMulti={true}
-        handleSelectedOption={handleSelectedSchools}
-        setDDLValue = {state.filterState.school? state.filterState.school.map((item)=>({label:item, value: item}) ) : []}
-      ></DropDown>
+        handleSelectedOption={handleSelectedSchool}
+        setDDLValue={filterState?.school ?? initialOptianModel}
+      />
     </div>
   );
-};
-
-
-
+}
 
 export const mapStateToProps = (state: RootState): IProps => {
   return {
     allAnalysis: state.ChartAnalysis.allAnalysis,
     allCountries: state.ChartAnalysis.allCountries,
     allCamps: state.ChartAnalysis.allCamps,
-    allSchools: state.ChartAnalysis.allSchools,
-    filterState: state.ChartAnalysis.filterState,
-  }
-}
-export const mapDispatchToProps = { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchools }
+    allSelectedSchoolsBasedOnCountryAndCamp: state.ChartAnalysis.allSelectedSchoolsBasedOnCountryAndCamp,
+    filterState: state.ChartAnalysis.filterState
+  };
+};
+export const mapDispatchToProps = { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchool };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DropDownListContent)
+export default connect(mapStateToProps, mapDispatchToProps)(DropDownListContent);

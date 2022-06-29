@@ -1,16 +1,16 @@
 import { useLocation } from "react-router-dom";
-import { RootState } from "../../state/reducers/index";
+import { RootState } from "@/state/reducers/index";
 import classes from "./pointData.module.css";
 import { connect } from "react-redux";
-import { IFilterState, ILocationStateType } from "../../models/models";
+import { IFilterState, ILocationStateType } from "@/models/models";
 interface IProps {
   filterstate: IFilterState;
 }
 
-export function PointData({ filterstate }: IProps) {
+export function PointData({ filterstate }: IProps): JSX.Element {
   const location = useLocation().state;
-  const country: string = filterstate.country?.value?? '';
-  const camp: string = filterstate.camp?.value?? '';
+  const country: string = filterstate.country?.value ?? '';
+  const camp: string = filterstate.camp?.value ?? '';
 
   const PointData: ILocationStateType = location as ILocationStateType;
 

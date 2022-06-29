@@ -1,5 +1,5 @@
-import { ActionType } from "../../state/actions/actionType";
-import reducer, { initialState } from "../../state/reducers/chartReducer";
+import { ActionType } from "@/state/actions/actionType";
+import reducer, { initialState } from "@/state/reducers/chartReducer";
 
 describe("Test Chart Analysis reducer", () => {
   it("should return state with new data for get all analysis type", () => {
@@ -53,10 +53,10 @@ describe("Test Chart Analysis reducer", () => {
   it("should return state with new data for get all schools", () => {
     const newState = {
       ...initialState,
-      allSchools: []
+      allSelectedSchoolsBasedOnCountryAndCamp: []
     };
     const state = reducer(initialState, {
-      type: ActionType.GET_ALL_SCHOOLS,
+      type: ActionType.SELECTED_SCHOOLS_RELATED_TO_COUNTRY_AND_CAMP,
       payload: []
     });
     expect(state).toStrictEqual(newState);

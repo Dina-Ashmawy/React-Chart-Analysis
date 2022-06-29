@@ -1,20 +1,16 @@
 import classes from "./dashboard.module.css";
-import DropDownListContent from "../dashboard/dropDownListContent";
+import DropDownListContent from "./dropDownListContent";
 import Header from "./header";
-import _ from "lodash";
 import ChartAndLessonsSummary from "./chartAndLessonsSummary/chartAndLessonsSummary";
 
-
-function Dashboard() {
+function Dashboard(): JSX.Element {
   return (
     <div>
       <div className={classes.appContainer}>
         <Header />
-        <DropDownListContent
-        ></DropDownListContent>
+        <DropDownListContent></DropDownListContent>
         <div className={classes.chartDataContainer}>
-          <ChartAndLessonsSummary
-          />  
+          <ChartAndLessonsSummary />
         </div>
       </div>
     </div>

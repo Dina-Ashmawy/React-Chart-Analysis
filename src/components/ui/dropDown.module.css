@@ -1,17 +1,19 @@
 .dropDownContainer {
-    display: flex;
-    flex-direction: row;
-    margin: 0 30px;
-  }
-  .dropDownTitle {
-    color: #6b6868;
-    margin: 7px;
-    font-size: 16px;
-  }
-  .dropDownSingleOption {
-    width: 120px;
-  }
-  .dropDownMultiOptions{
-    width: 700px;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  margin: 0 30px;
+}
+
+.dropDownTitle {
+  color: #6b6868;
+  margin: 7px;
+  font-size: 16px;
+}
+
+.dropDownSingleOption {
+  width: 270px;
+}
+
+.dropDownMultiOptions {
+  width: 700px;
+}

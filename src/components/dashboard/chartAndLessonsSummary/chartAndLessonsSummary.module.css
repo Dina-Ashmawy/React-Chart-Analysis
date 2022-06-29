@@ -1,9 +1,9 @@
-.chartAndSummarizeContainer{
-    display: flex;
-    flex-direction: row;
+.chartAndSummarizeContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .noDataContainer {
-    padding: 50px;
-    text-align: center;
-  }
+  padding: 50px;
+  text-align: center;
+}

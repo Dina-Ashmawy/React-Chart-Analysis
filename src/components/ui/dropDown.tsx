@@ -1,47 +1,36 @@
-import React from "react";
 import Select from "react-select";
 import classes from "./dropDown.module.css";
-import {IOptionModel} from "../../models/models"
-type props = {
+import { IOptionModel } from "@/models/models";
+interface IProps {
   items: IOptionModel[];
   title: string;
   handleSelectedOption: any;
-  setDDLValue?: any;
-  isMulti: boolean;
+  setDDLValue?: IOptionModel;
 };
 
 const customStyles = {
-  control: (base: any) => ({
-    ...base,
+  control: () => ({
     background: "#66bce780",
-  }),
- }
+    display: "flex"
+  })
+};
 
-const DropDown: React.FC<props> = props => {
-  const returnValue = ()=> {
-    if(props.isMulti) {
-      return props.setDDLValue.length>0? props.setDDLValue: [];
-    }
-    else {
-      return props.setDDLValue.value?   props.setDDLValue: [];
-    }
-  }
+export function DropDown({
+  items,
+  title,
+  handleSelectedOption,
+  setDDLValue
+}: IProps): JSX.Element {
   return (
     <div className={classes.dropDownContainer}>
-      <p className={classes.dropDownTitle}>{props.title}</p>
-      <Select styles={customStyles}
-        className={
-          props.isMulti
-            ? classes.dropDownMultiOptions
-            : classes.dropDownSingleOption
-        }
-        isMulti={props.isMulti}
-        options={props.items}
-        onChange={option => props.handleSelectedOption(option)}
-        value={returnValue()}
+      <p className={classes.dropDownTitle}>{title}</p>
+      <Select
+        styles={customStyles}
+        className={classes.dropDownSingleOption}
+        options={items}
+        onChange={option => handleSelectedOption(option)}
+        value={setDDLValue}
       />
     </div>
   );
 };
-
-export default DropDown;

@@ -1,19 +1,7 @@
-import {
-  IPropsDropDownListContent,
-  IPropsLineChart,
-  IPropsLessonsSummary,
-  IPropsFilterStateOnly
-} from "./mock-interface";
+import { IPropsDropDownListContent, IPropsLineChart, IPropsLessonsSummary, IPropsFilterStateOnly } from "./mock-interface";
 
-import {
-  filterstate,
-  lessonsByCampData,
-  selectedSchools,
-  allAnalysis,
-  allCountries,
-  allCamps,
-  allSchools
-} from "./mock-data";
+import { filterstate, lessonsByCampData, selectedSchools, allAnalysis, allCountries, allCamps, 
+  allSelectedSchoolsBasedOnCountryAndCamp } from "./mock-data";
 
 export const filterStateprops: IPropsFilterStateOnly = {
   filterstate
@@ -33,5 +21,5 @@ export const droDownListContentProps: IPropsDropDownListContent = {
   allAnalysis,
   allCountries,
   allCamps,
-  allSchools
+  allSelectedSchoolsBasedOnCountryAndCamp
 };

@@ -1,7 +1,5 @@
-.dropDownsContainer{
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 40px;
-
+.dropDownsContainer {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
 }
-

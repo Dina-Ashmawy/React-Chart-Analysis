@@ -1,14 +1,8 @@
-import {
-  IFilterState,
-  IAllAnalysis,
-  IOptionModel,
-  ISelectedSchools,
-  ILessonsByCampData
-} from "./../../models/models";
+import { IFilterState, IAnalysis, IOptionModel, ISelectedSchools, ILessonsByCampData } from "@/models/models";
 export const filterstate: IFilterState = {
   country: { value: "Egypt", label: "Egypt" },
   camp: { value: "Omaka", label: "Omaka" },
-  school: ["Burke High School"]
+  school: { value: "Burke High School", label: "Burke High School" }
 };
 
 export const lessonsByCampData: ILessonsByCampData[] = [
@@ -39,10 +33,10 @@ export const selectedSchools: ISelectedSchools[] = [
   }
 ];
 
-export const allAnalysis: IAllAnalysis[] = [];
+export const allAnalysis: IAnalysis[] = [];
 export const allCountries: IOptionModel[] = [];
 export const allCamps: IOptionModel[] = [];
-export const allSchools: IOptionModel[] = [];
+export const allSelectedSchoolsBasedOnCountryAndCamp: IOptionModel[] = [];
 
 export const initialState = {
   ChartAnalysis: {
@@ -50,8 +44,8 @@ export const initialState = {
     lessonsByCampData: lessonsByCampData,
     allCountries: [],
     allCamps: [],
-    allSchools: [],
     selectedSchoolsChartData: selectedSchools,
-    filterState: filterstate
+    filterState: filterstate,
+    allSelectedSchoolsBasedOnCountryAndCamp: []
   }
 };

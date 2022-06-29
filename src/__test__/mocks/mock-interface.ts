@@ -1,10 +1,4 @@
-import {
-  IAllAnalysis,
-  IFilterState,
-  ILessonsByCampData,
-  ISelectedSchools,
-  IOptionModel
-} from "../../models/models";
+import { IAnalysis, IFilterState, ILessonsByCampData, ISelectedSchools, IOptionModel} from "@/models/models";
 
 
 export interface IPropsFilterStateOnly {
@@ -20,9 +14,9 @@ export interface IPropsLineChart {
 }
 
 export interface IPropsDropDownListContent {
-  allAnalysis: IAllAnalysis[],
+  allAnalysis: IAnalysis[],
   allCountries: IOptionModel[],
   allCamps: IOptionModel[],
-  allSchools: IOptionModel[],
+  allSelectedSchoolsBasedOnCountryAndCamp: IOptionModel[],
   filterstate: IFilterState,
 }

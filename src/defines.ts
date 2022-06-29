@@ -1,6 +1,6 @@
 import { IOptionModel } from "./models/models";
 
-export const months: string[] =  [
+export const months: string[] = [
 	"Jan",
 	"Feb",
 	"Mar",
@@ -13,7 +13,9 @@ export const months: string[] =  [
 	"Oct",
 	"Nov",
 	"Dec"
-  ];
+];
 
 
 export const selectAll: IOptionModel = { value: "Select All", label: "Select All" };
+
+export const initialOptianModel: IOptionModel = { value: "", label: "" };

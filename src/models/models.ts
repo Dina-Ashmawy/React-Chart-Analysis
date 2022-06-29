@@ -3,13 +3,13 @@ import { ThunkDispatch } from "redux-thunk";
 import { RootState } from "../state/reducers/index";
 
 export interface IState {
-  allAnalysis: IAllAnalysis[];
+  allAnalysis: IAnalysis[];
   lessonsByCampData: ILessonsByCampData[];
   allCountries: IOptionModel[];
   allCamps: IOptionModel[];
-  allSchools: IOptionModel[];
   filterState: IFilterState;
   selectedSchoolsChartData: ISelectedSchools[];
+  allSelectedSchoolsBasedOnCountryAndCamp: IOptionModel[];
 }
 export interface IAnalysis {
   id: string;
@@ -19,14 +19,11 @@ export interface IAnalysis {
   school: string;
   lessons: number;
 }
-export interface IAllAnalysis {
-  allAnalysis: IAnalysis[];
-}
 
 export interface IFilterState {
   country?: IOptionModel;
   camp?: IOptionModel;
-  school?: string[];
+  school?: IOptionModel;
 }
 export interface ILesson {
   month: string;
@@ -43,9 +40,16 @@ export interface ILessonsByCampData {
 
 export interface IGroupedItems {
   key: string;
-  list: any[];
+  list: IAnalysis[];
 }
 [];
+/*
+
+export interface IGroupedDictionaryItems {
+  key: string;
+  list: IAllAnalysis[];
+}
+[];*/
 
 export interface ISelectedSchools {
   label: string;
@@ -55,7 +59,7 @@ export interface ISelectedSchools {
 
 export interface IActionGetAllAnalysis {
   type: ActionType.GET_ALL_DATA_ANALYSIS;
-  payload: IAllAnalysis[];
+  payload: IAnalysis[];
 }
 export interface IActionGetAllCountries {
   type: ActionType.GET_ALL_COUNTRIES;
@@ -65,10 +69,7 @@ export interface IActionGetAllCamps {
   type: ActionType.GET_ALL_CAMPS;
   payload: IOptionModel[];
 }
-export interface IActionGetAllSchools {
-  type: ActionType.GET_ALL_SCHOOLS;
-  payload: IOptionModel[];
-}
+
 export interface IActionFilteredLessonsByCampData {
   type: ActionType.FILTERED_LESSONS_BY_CAMP;
   payload: ILessonsByCampData[];
@@ -80,6 +81,11 @@ export interface IActionFilterState {
 export interface IActionSelectedSchools {
   type: ActionType.CHART_SELECTED_SCHOOLS;
   payload: ISelectedSchools[];
+}
+
+export interface IActionSelectedSchoolsBasedOnCountryAndCamp {
+  type: ActionType.SELECTED_SCHOOLS_RELATED_TO_COUNTRY_AND_CAMP;
+  payload: IOptionModel[];
 }
 
 export interface IOptionModel {
@@ -97,9 +103,9 @@ export type ActionTypes =
   | IActionGetAllAnalysis
   | IActionGetAllCountries
   | IActionGetAllCamps
-  | IActionGetAllSchools
   | IActionFilteredLessonsByCampData
   | IActionFilterState
-  | IActionSelectedSchools;
+  | IActionSelectedSchools
+  | IActionSelectedSchoolsBasedOnCountryAndCamp;
 
 export type Action = ThunkDispatch<RootState, undefined, ActionTypes>;
