@@ -34,12 +34,6 @@ export const getAllDataAnalysis = () => {
           type: ActionType.GET_ALL_CAMPS,
           payload: setUniqueCamps(res.data)
         });
-
-        dispatch({
-          type: ActionType.SELECTED_SCHOOLS_RELATED_TO_COUNTRY_AND_CAMP,
-          payload: SelectedSchoolsBasedOnCountryAndCamp()
-        });
-
         dispatch(handleSelectedCountry(uniqueCountry[0]));
         dispatch(handleSelectedCamp(uniqueCamps[0]));
         dispatch(handleSelectedSchool(allUniqueSchools[0]));
@@ -198,20 +192,7 @@ export const handleSelectedCountry = (selectedCountry: IOptionModel) => {
         country: selectedCountry
       }
     });
-    dispatch({
-      type: ActionType.CHART_SELECTED_SCHOOLS,
-      payload: selectedSchoolChartData()
-    });
-    dispatch({
-      type: ActionType.FILTERED_LESSONS_BY_CAMP,
-      payload: getLessonsByCamp()
-    });
-    dispatch({
-      type: ActionType.SELECTED_SCHOOLS_RELATED_TO_COUNTRY_AND_CAMP,
-      payload: SelectedSchoolsBasedOnCountryAndCamp()
-    });
     dispatch(handleSelectedSchool(allUniqueSchools[0]));
-
   };
 }
 
@@ -228,18 +209,6 @@ export const handleSelectedCamp = (selectedCamp: IOptionModel) => {
     dispatch({
       type: ActionType.FILTER_STATE,
       payload: { ...state.filterState, camp: selectedCamp }
-    });
-    dispatch({
-      type: ActionType.FILTERED_LESSONS_BY_CAMP,
-      payload: getLessonsByCamp()
-    });
-    dispatch({
-      type: ActionType.CHART_SELECTED_SCHOOLS,
-      payload: selectedSchoolChartData()
-    });
-    dispatch({
-      type: ActionType.SELECTED_SCHOOLS_RELATED_TO_COUNTRY_AND_CAMP,
-      payload: SelectedSchoolsBasedOnCountryAndCamp()
     });
     dispatch(handleSelectedSchool(allUniqueSchools[0]));
   };
@@ -259,6 +228,10 @@ export const handleSelectedSchool = (selectedSchool: IOptionModel) => {
     dispatch({
       type: ActionType.FILTERED_LESSONS_BY_CAMP,
       payload: getLessonsByCamp()
+    });
+    dispatch({
+      type: ActionType.SELECTED_SCHOOLS_RELATED_TO_COUNTRY_AND_CAMP,
+      payload: SelectedSchoolsBasedOnCountryAndCamp()
     });
   };
 };

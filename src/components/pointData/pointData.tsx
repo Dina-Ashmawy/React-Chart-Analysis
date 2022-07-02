@@ -30,7 +30,7 @@ export function PointData({ filterstate }: IProps): JSX.Element {
         <label>Month: {PointData?.Month}</label>
       </div>
       <div className={classes.itemContainer}>
-        <label>No of Lessons:{PointData?.Lessons}</label>
+        <label>No of Lessons: {PointData?.Lessons}</label>
       </div>
     </div>
   );
