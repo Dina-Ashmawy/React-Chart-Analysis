@@ -36,7 +36,6 @@ export const getAllDataAnalysis = () => {
         });
         dispatch(handleSelectedCountry(uniqueCountry[0]));
         dispatch(handleSelectedCamp(uniqueCamps[0]));
-        dispatch(handleSelectedSchool(allUniqueSchools[0]));
       });
   };
 };

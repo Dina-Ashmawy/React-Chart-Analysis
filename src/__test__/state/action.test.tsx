@@ -24,16 +24,16 @@ describe("Test AnalysisChart actions", () => {
 
   test("Test chart analysis handleChangeCountry action", () => {
     mockStore.dispatch(handleSelectedCountry({ label: "Spain", value: "Spain" }));
-    expect(mockStore.getActions().length).toBe(22);
+    expect(mockStore.getActions().length).toBe(18);
   });
 
   test("Test chart analysis handleChangeCamp action", () => {
     mockStore.dispatch(handleSelectedCamp({ label: "Camp5", value: "Camp5" }));
-    expect(mockStore.getActions().length).toBe(27);
+    expect(mockStore.getActions().length).toBe(23);
   });
 
   test("Test chart analysis handleChangeSchool action", () => {
     mockStore.dispatch(handleSelectedSchool({ label: "SCU", value: "SCU" }));
-    expect(mockStore.getActions().length).toBe(31);
+    expect(mockStore.getActions().length).toBe(27);
   });
 });
