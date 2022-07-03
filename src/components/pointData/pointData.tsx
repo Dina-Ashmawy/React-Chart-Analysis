@@ -1,8 +1,8 @@
-import { useLocation } from "react-router-dom";
-import { RootState } from "@/state/reducers/index";
-import classes from "./pointData.module.css";
-import { connect } from "react-redux";
-import { IFilterState, ILocationStateType } from "@/models/models";
+import { useLocation } from 'react-router-dom';
+import { RootState } from '@/state/reducers/index';
+import classes from './pointData.module.css';
+import { connect } from 'react-redux';
+import { IFilterState, ILocationStateType } from '@/models/models';
 interface IProps {
   filterstate: IFilterState;
 }

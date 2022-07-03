@@ -1,4 +1,4 @@
-import classes from "./header.module.css";
+import classes from './header.module.css';
 
 const Header = (): JSX.Element => {
   return (

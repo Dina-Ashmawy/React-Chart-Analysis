@@ -1,7 +1,7 @@
-import classes from "./dashboard.module.css";
-import DropDownListContent from "./dropDownListContent";
-import Header from "./header";
-import ChartAndLessonsSummary from "./chartAndLessonsSummary/chartAndLessonsSummary";
+import classes from './dashboard.module.css';
+import DropDownListContent from './dropDownListContent';
+import Header from './header';
+import ChartAndLessonsSummary from './chartAndLessonsSummary/chartAndLessonsSummary';
 
 function Dashboard(): JSX.Element {
   return (

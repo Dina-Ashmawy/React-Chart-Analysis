@@ -1,8 +1,8 @@
-import { ActionType } from "@/state/actions/actionType";
-import reducer, { initialState } from "@/state/reducers/chartReducer";
+import { ActionType } from '@/state/actions/actionType';
+import reducer, { initialState } from '@/state/reducers/chartReducer';
 
-describe("Test Chart Analysis reducer", () => {
-  it("should return state with new data for get all analysis type", () => {
+describe('Test Chart Analysis reducer', () => {
+  it('should return state with new data for get all analysis type', () => {
     const newState = {
       ...initialState,
       allAnalysis: []
@@ -14,7 +14,7 @@ describe("Test Chart Analysis reducer", () => {
     expect(state).toStrictEqual(newState);
   });
 
-  it("should return state with new data for filtered lessons by camp", () => {
+  it('should return state with new data for filtered lessons by camp', () => {
     const newState = {
       ...initialState,
       lessonsByCampData: []
@@ -26,7 +26,7 @@ describe("Test Chart Analysis reducer", () => {
     expect(state).toStrictEqual(newState);
   });
 
-  it("should return state with new data for get all countries", () => {
+  it('should return state with new data for get all countries', () => {
     const newState = {
       ...initialState,
       allCountries: []
@@ -38,7 +38,7 @@ describe("Test Chart Analysis reducer", () => {
     expect(state).toStrictEqual(newState);
   });
 
-  it("should return state with new data for get all camps", () => {
+  it('should return state with new data for get all camps', () => {
     const newState = {
       ...initialState,
       allCamps: []
@@ -50,7 +50,7 @@ describe("Test Chart Analysis reducer", () => {
     expect(state).toStrictEqual(newState);
   });
 
-  it("should return state with new data for get all schools", () => {
+  it('should return state with new data for get all schools', () => {
     const newState = {
       ...initialState,
       allSelectedSchoolsBasedOnCountryAndCamp: []
@@ -62,7 +62,7 @@ describe("Test Chart Analysis reducer", () => {
     expect(state).toStrictEqual(newState);
   });
 
-  it("should return state with new data for get all schools", () => {
+  it('should return state with new data for get all schools', () => {
     const newState = {
       ...initialState,
       selectedSchoolsChartData: []

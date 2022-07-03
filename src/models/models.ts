@@ -1,6 +1,6 @@
-import { ActionType } from "../state/actions/actionType";
-import { ThunkDispatch } from "redux-thunk";
-import { RootState } from "../state/reducers/index";
+import { ActionType } from '../state/actions/actionType';
+import { ThunkDispatch } from 'redux-thunk';
+import { RootState } from '../state/reducers/index';
 
 export interface IState {
   allAnalysis: IAnalysis[];

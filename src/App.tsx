@@ -1,13 +1,9 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const Dashboard = React.lazy(() =>
-    import("./components/dashboard/dashboard")
-  );
-  const PointData = React.lazy(() =>
-    import("./components/pointData/pointData")
-  );
+  const Dashboard = React.lazy(() => import('./components/dashboard/dashboard'));
+  const PointData = React.lazy(() => import('./components/pointData/pointData'));
 
   return (
     <div className="App">

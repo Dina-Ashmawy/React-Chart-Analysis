@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { DropDown } from "@/components/ui/dropDown";
-import classes from "./dropDownListContent.module.css";
-import { connect } from "react-redux";
-import { RootState } from "@/state/reducers/index";
-import { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchool } from "@/state/actions/actionCreator";
-import { IFilterState, IAnalysis, IOptionModel } from "@/models/models";
-import { initialOptianModel } from "@/defines";
+import { useEffect } from 'react';
+import { DropDown } from '@/components/ui/dropDown';
+import classes from './dropDownListContent.module.css';
+import { connect } from 'react-redux';
+import { RootState } from '@/state/reducers/index';
+import { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchool } from '@/state/actions/actionCreator';
+import { IFilterState, IAnalysis, IOptionModel } from '@/models/models';
+import { initialOptianModel } from '@/defines';
 
 interface IProps {
   getAllDataAnalysis?: () => void;
@@ -30,32 +30,29 @@ export function DropDownListContent({
   allSelectedSchoolsBasedOnCountryAndCamp,
   filterState
 }: IProps): JSX.Element {
-  useEffect(
-    () => {
-      if (getAllDataAnalysis && (allAnalysis?.length === 0)) {
-        getAllDataAnalysis();
-      }
-    },
-    [getAllDataAnalysis, allAnalysis?.length]
-  );
+  useEffect(() => {
+    if (getAllDataAnalysis && allAnalysis?.length === 0) {
+      getAllDataAnalysis();
+    }
+  }, [getAllDataAnalysis, allAnalysis?.length]);
 
   return (
     <div className={classes.dropDownsContainer}>
       <DropDown
         items={allCountries}
-        title={"Select Country"}
+        title={'Select Country'}
         handleSelectedOption={handleSelectedCountry}
         setDDLValue={filterState?.country ?? initialOptianModel}
       />
       <DropDown
         items={allCamps}
-        title={"Select Camp"}
+        title={'Select Camp'}
         handleSelectedOption={handleSelectedCamp}
         setDDLValue={filterState?.camp ?? initialOptianModel}
       />
       <DropDown
         items={allSelectedSchoolsBasedOnCountryAndCamp}
-        title={"Select School"}
+        title={'Select School'}
         handleSelectedOption={handleSelectedSchool}
         setDDLValue={filterState?.school ?? initialOptianModel}
       />
@@ -72,6 +69,11 @@ export const mapStateToProps = (state: RootState): IProps => {
     filterState: state.ChartAnalysis.filterState
   };
 };
-export const mapDispatchToProps = { getAllDataAnalysis, handleSelectedCountry, handleSelectedCamp, handleSelectedSchool };
+export const mapDispatchToProps = {
+  getAllDataAnalysis,
+  handleSelectedCountry,
+  handleSelectedCamp,
+  handleSelectedSchool
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropDownListContent);

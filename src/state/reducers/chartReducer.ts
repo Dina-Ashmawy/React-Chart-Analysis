@@ -1,6 +1,6 @@
 import { initialOptianModel } from '@/defines';
-import { ActionType } from "../actions/actionType";
-import { IState, ActionTypes } from "@/models/models";
+import { ActionType } from '../actions/actionType';
+import { IState, ActionTypes } from '@/models/models';
 
 export const initialState: IState = {
   allAnalysis: [],
